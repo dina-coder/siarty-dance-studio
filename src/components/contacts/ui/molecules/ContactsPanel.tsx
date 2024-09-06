@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,78 +10,90 @@ type TContactsPanelProps = {
 
 export const ContactsPanel = ({ className }: TContactsPanelProps) => (
   <WrapperStyle className={className}>
-              <Typography color={COLORS.ACCENT} variant="h4" fontWeight={200}>
-      {INTL.CONTACTS_PAGE.TITLE}
-    </Typography>
-    <Typography variant="body2" sx={{fontWeight: '600'}} color={COLORS.WHITE}>
-Адрес    </Typography>
-    <Typography variant="body2">
-      г. Москва, ул. Кедрова, д. 4к2
-    </Typography>
-    <Typography variant="body2">
-      (метро Академическая)
-    </Typography>
-    <Typography variant="body2" sx={{fontWeight: '600'}} color={COLORS.WHITE}>
-Телефон    </Typography>
-    <Button
+        <ImgContainerStyled src={require("../../../../assets/logoColor.svg")} loading="lazy"/>
+        <Typography variant='h4'>КОНТАКТЫ</Typography>
+        <Typography
       component={"a"}
       href="tel: +79691909666"
       target="_blank"
-      size="large"
-      variant="text"
-      color="inherit"
-      sx={{
-        padding: 0,
-        // margin: "24px 0 16px 0",
-
-      }}
+      variant={"body1"}
+      color={COLORS.WHITE}
     >
       +7 (969) 190-96-66
-    </Button>
+    </Typography>
+    <Typography variant="body1">г. Москва, ул. Кедрова, д. 4к2</Typography>
+
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A3da531cef0060c45bacf1fca7b87404433ad6ff9b20db608a83f776d9d903a02&amp;source=constructor"
+          width="100%"
+          height="400"
+        />
+
     <ButtonsContainerStyled>
-        <IconButton sx={{      "&:hover": {
-        backgroundColor: COLORS.ACCENT
-      }}} size="small"  href="https://wa.me/79691909666" target='_blank'>
-      <ImgStyled src={require('../../../../assets/wa.png')} />
-    </IconButton>
-
-    <IconButton sx={{      "&:hover": {
-        backgroundColor: COLORS.ACCENT
-      }}}  size="small" href="https://t.me/siarty_dance_studio" target='_blank'>
-      <ImgStyled src={require('../../../../assets/telegram.png')}/>
-    </IconButton>
-    <IconButton sx={{      "&:hover": {
-        backgroundColor: COLORS.ACCENT
-      }}}  size="small" href="https://vk.com/siarty_dancestudio" target='_blank'>
-      <SmallImgStyled src={require('../../../../assets/vk.png')}/>
-    </IconButton>
-
+      <IconButton
+        sx={{
+          "&:hover": {
+            backgroundColor: COLORS.ACCENT,
+          },
+        }}
+        size="large"
+        href="https://wa.me/79691909666"
+        target="_blank"
+      >
+        <ImgStyled src={require("../../../../assets/wa.png")} loading="lazy" />
+      </IconButton>
+      <IconButton
+        sx={{
+          "&:hover": {
+            backgroundColor: COLORS.ACCENT,
+          },
+        }}
+        size="large"
+        href="https://t.me/siarty_dance_studio"
+        target="_blank"
+      >
+        <ImgStyled src={require("../../../../assets/telegram.png")} loading="lazy" />
+      </IconButton>
+      <IconButton
+        sx={{
+          "&:hover": {
+            backgroundColor: COLORS.ACCENT,
+          },
+        }}
+        size="large"
+        href="https://vk.com/siarty_dancestudio"
+        target="_blank"
+      >
+        <ImgStyled src={require("../../../../assets/vk.png")} loading="lazy" />
+      </IconButton>
     </ButtonsContainerStyled>
   </WrapperStyle>
 );
 
 const WrapperStyle = styled.div`
-padding: 40px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: ${COLORS.WHITE};
-  background-color: ${COLORS.BLACK_1};
 `;
 
 const ButtonsContainerStyled = styled.div`
-  margin-top: 16px;
+display: flex;
+gap: 16px;
 `;
 
+const ImgContainerStyled = styled.img`
+height: 100px;
+margin-bottom: 24px;
+`;
 
 const ImgStyled = styled.img`
   color: ${COLORS.WHITE};
-  height: 24px;
+  width: 36px;
 `;
 
-const SmallImgStyled = styled.img`
-  color: ${COLORS.WHITE};
-  height: 16px;
+const TypographyStyled = styled(Typography)`
+
 `;

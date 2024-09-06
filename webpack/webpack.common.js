@@ -22,7 +22,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|webp|mp4)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp|webm)$/i,
         type: 'asset/resource',
       },
       {
@@ -32,12 +32,17 @@ module.exports = {
     ],
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
   },
+  devServer: {
+    historyApiFallback: true
+},
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
+      favicon: './src/assets/favicon.ico'
     }),
   ],
   stats: 'errors-only',

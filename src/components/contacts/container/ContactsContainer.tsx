@@ -2,43 +2,25 @@ import React from "react";
 import styled from "styled-components";
 
 import { ContactsPanel } from "../ui/molecules/ContactsPanel";
-import { Box, Button, Typography } from "@mui/material";
-import { COLORS, INTL } from "../../../common/constants";
-
+import Box from "@mui/material/Box";
 
 export const ContactsContainer = () => {
   return (
     <WrapperStyle>
+      <ContactsPanel />
 
-<ContactsPanel />
-
-
-      <IframeContainerStyle>
-<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3da531cef0060c45bacf1fca7b87404433ad6ff9b20db608a83f776d9d903a02&amp;source=constructor" width="100%" height="400" />
-</IframeContainerStyle>
-{/* <Typography variant="caption" color={COLORS.WHITE}>
-    ⓒ Siarty dance studio, 2023
-    </Typography> */}
-</WrapperStyle>
+    </WrapperStyle>
   );
 };
 
 const WrapperStyle = styled.div`
-width: 80vw;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 40px 40px;
-flex-wrap: wrap;
-/* width: 100%; */
+  position: relative;
+  width: 80vw;
+  min-width: 80vw;
+  /* display: flex; */
+  /* align-items: center;
+  flex-direction: center;
+  flex-wrap: wrap; */
   gap: 40px;
-  `;
+`;
 
-const IframeContainerStyle = styled(Box)`
-flex-grow: 1;
-  min-width: 320px;
-  margin-top: 40px;
-`;
-const ButtonStyled = styled(Button)`
-  margin-top: 16px;
-`;

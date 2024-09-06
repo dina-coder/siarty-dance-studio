@@ -1,73 +1,56 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect} from "react";
 import styled from "styled-components";
 
 import { ResetStyle } from "./reset";
 import { HeaderContainer } from "./components/header/container/HeaderContainer";
-import { COLORS } from "./common/constants";
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, Typography } from "@mui/material";
 import { theme } from "./common/constants/theme";
-import { MainPage } from "./pages/main/Main";
-import { DirectionsPage } from "./pages/directions/Directions";
-import { PricePage } from "./pages/price/Price";
-import { SchedulePage } from "./pages/schedule/Schedule";
-import { ContactsPage } from "./pages/contacts/Contacts";
-import { RentPage } from "./pages/rent/Rent";
 import { TypographyStyle } from "./typography";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { HomePage } from "./pages/homePage/HomePage";
+import { LadyStylePage } from "./pages/ladyStylePage/LadyStylePage";
+import { DancehallPage } from "./pages/dancehallPage/DancehallPage";
+import { StretchPage } from "./pages/stretchPage/StretchPage";
+import { StripPlasticPage } from "./pages/stripPlasticPage/StripPlasticPage";
+import { TwerkPage } from "./pages/twerkPage/TwerkPage";
+import { ChoreoPage } from "./pages/choreoPage/ChoreoPage";
 
 export const App = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isColor, setColor] = useState(false)
-  //ref.current?.scrollTop>0 && setColor(true)}
-  const handleScrolll = () => {
-    ref.current?.scrollTop>10 ? setColor(true) : setColor(false)
-  }
+  const pathname = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
+
   return (
     <>
       <ResetStyle />
       <TypographyStyle />
       <ThemeProvider theme={theme}>
-      <ContainerStyle ref={ref} onScroll={handleScrolll}>
         <LayoutStyle>
-        <HeaderContainer isColor={isColor} />
-        <MainPage />
-        <WrapperStyle>
-        <DirectionsPage />
-        </WrapperStyle>
-
-        <WrapperStyle>
-
-        <SchedulePage />
-        </WrapperStyle>
-
-        <PricePage />
-        {/* <WrapperStyle> */}
-        <RentPage />
-
-        <ContactsPage />
-        {/* </WrapperStyle> */}
+        <HeaderContainer />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+        <Route path='/choreo' element={<ChoreoPage />} />
+        <Route path='/lady_style' element={<LadyStylePage />} />
+        <Route path='/dancehall' element={<DancehallPage />} />
+        <Route path='/stretching' element={<StretchPage />} />
+        <Route path='/strip' element={<StripPlasticPage />} />
+        <Route path='/twerk' element={<TwerkPage />} />
+        </Routes>
         </LayoutStyle>
-      </ContainerStyle>
       </ThemeProvider>
     </>
   );
 };
 
-const ContainerStyle = styled.div`
 
-  height: 100vh;
-  overflow: scroll;
-  `;
-
-const WrapperStyle = styled.div`
-  max-width: 1920px;
-`;
 const LayoutStyle = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${COLORS.BLACK_1};
   width: 100%;
 `;
 

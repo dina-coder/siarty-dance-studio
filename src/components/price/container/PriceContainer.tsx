@@ -3,16 +3,23 @@ import styled from "styled-components";
 
 import { COLORS, INTL } from "../../../common/constants";
 import { PriceElement } from "../ui/molecules/PriceElement";
+import { CircleLogoIcon } from "../../../assets/icons";
 
 type TPriceContainerProps = {
   className?: string;
 };
 
 export const PriceContainer = ({ className }: TPriceContainerProps) => (
+  <WrapperStyle>
   <PriceLayout className={className}>
-      <PriceLayout>
-
-    <PriceElement title={INTL.PRICE_PAGE.ONE_LESSON.TITLE} price={INTL.PRICE_PAGE.ONE_LESSON.PRICE} />
+    <PriceElement
+      title={INTL.PRICE_PAGE.FIRST_LESSON.TITLE}
+      price={INTL.PRICE_PAGE.FIRST_LESSON.PRICE}
+    />
+    <PriceElement
+      title={INTL.PRICE_PAGE.ONE_LESSON.TITLE}
+      price={INTL.PRICE_PAGE.ONE_LESSON.PRICE}
+    />
     <PriceElement
       title={INTL.PRICE_PAGE.TICKETS.FOUR_CLASSES.TITLE}
       price={INTL.PRICE_PAGE.TICKETS.FOUR_CLASSES.FULL_PRICE}
@@ -25,8 +32,6 @@ export const PriceContainer = ({ className }: TPriceContainerProps) => (
       time={INTL.PRICE_PAGE.TICKETS.SIX_CLASSES.TIME}
       onePrice={INTL.PRICE_PAGE.TICKETS.SIX_CLASSES.ONE_PRICE}
     />
-      </PriceLayout>
-          <PriceLayout>
 
     <PriceElement
       title={INTL.PRICE_PAGE.TICKETS.EIGHT_CLASSES.TITLE}
@@ -45,16 +50,24 @@ export const PriceContainer = ({ className }: TPriceContainerProps) => (
       price={INTL.PRICE_PAGE.TICKETS.UNLIMITED.FULL_PRICE}
       onePrice={INTL.PRICE_PAGE.TICKETS.UNLIMITED.ONE_PRICE}
     />
-      </PriceLayout>
-
   </PriceLayout>
+  </WrapperStyle>
 );
 
-const PriceLayout = styled.div`
-  color: ${COLORS.WHITE};
-  justify-content: center;
+const WrapperStyle = styled.div`
   height: 100%;
+  padding: 8px;
+  background-color: ${COLORS.WHITE};
+  border: 4px solid ${COLORS.BLACK_1};
+  border-radius: 4px;
+`;
+const PriceLayout = styled.div`
+  padding: 24px;
+  color: ${COLORS.BLACK_1};
+  justify-content: center;
   display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 4px;
+  border: 2px solid ${COLORS.BLACK_1};
 `;

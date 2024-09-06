@@ -16,29 +16,29 @@ export const scheduleList: TScheduleDay[] = [
     weekDay: INTL.SCHEDULE_PAGE.WEEKDAY_RU.MONDAY,
     schedule: [
       {
-        id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
+        id: INTL.DIRECTIONS_PAGE.CHOREO,
         time: "19:00",
+        title: INTL.DIRECTIONS_PAGE.CHOREO,
+      },
+      {
+        id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
+        time: "20:00",
         title: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
       },
       {
         id: INTL.DIRECTIONS_PAGE.STRETCHING,
-        time: "20:00",
-        title: INTL.DIRECTIONS_PAGE.STRETCHING,
-      },
-      {
-        id: INTL.DIRECTIONS_PAGE.REGGAETON,
         time: "21:00",
-        title: INTL.DIRECTIONS_PAGE.REGGAETON,
-      },
+        title: INTL.DIRECTIONS_PAGE.STRETCHING,
+      }
     ],
   },
   {
     weekDay: INTL.SCHEDULE_PAGE.WEEKDAY_RU.TUESDAY,
     schedule: [
       {
-        id: INTL.DIRECTIONS_PAGE.CHOREO,
+        id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_SCRATCH,
         time: "19:00",
-        title: INTL.DIRECTIONS_PAGE.CHOREO,
+        title: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_SCRATCH,
       },
       {
         id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_PRO,
@@ -56,24 +56,29 @@ export const scheduleList: TScheduleDay[] = [
     weekDay: INTL.SCHEDULE_PAGE.WEEKDAY_RU.WEDNESDAY,
     schedule: [
       {
-        id: INTL.DIRECTIONS_PAGE.JAZZ_FUNK,
-        time: "19:00",
-        title: INTL.DIRECTIONS_PAGE.JAZZ_FUNK,
+        id: INTL.DIRECTIONS_PAGE.LADY_STYLE,
+        time: "18:00",
+        title: INTL.DIRECTIONS_PAGE.LADY_STYLE,
       },
       {
         id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
-        time: "20:00",
+        time: "19:00",
         title: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
       },
+      {
+        id: INTL.DIRECTIONS_PAGE.DANCEHALL.TITLE,
+        time: "20:00",
+        title: INTL.DIRECTIONS_PAGE.DANCEHALL.TITLE,
+      }
     ],
   },
   {
     weekDay: INTL.SCHEDULE_PAGE.WEEKDAY_RU.THURSDAY,
     schedule: [
       {
-        id: INTL.DIRECTIONS_PAGE.CHOREO,
+        id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_SCRATCH,
         time: "19:00",
-        title: INTL.DIRECTIONS_PAGE.CHOREO,
+        title: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_SCRATCH,
       },
       {
         id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_PRO,
@@ -91,9 +96,19 @@ export const scheduleList: TScheduleDay[] = [
     weekDay: INTL.SCHEDULE_PAGE.WEEKDAY_RU.FRIDAY,
     schedule: [
       {
-        id: INTL.DIRECTIONS_PAGE.JAZZ_FUNK,
+        id: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
+        time: "11:30",
+        title: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_BEGINNERS,
+      },
+      {
+        id: INTL.DIRECTIONS_PAGE.LADY_STYLE,
+        time: "18:00",
+        title: INTL.DIRECTIONS_PAGE.LADY_STYLE,
+      },
+      {
+        id: INTL.DIRECTIONS_PAGE.CHOREO,
         time: "19:00",
-        title: INTL.DIRECTIONS_PAGE.JAZZ_FUNK,
+        title: INTL.DIRECTIONS_PAGE.CHOREO,
       },
       {
         id: INTL.DIRECTIONS_PAGE.LADY_STYLE,
@@ -101,10 +116,10 @@ export const scheduleList: TScheduleDay[] = [
         title: INTL.DIRECTIONS_PAGE.LADY_STYLE,
       },
       {
-        id: INTL.DIRECTIONS_PAGE.REGGAETON,
+        id: INTL.DIRECTIONS_PAGE.STRETCHING,
         time: "21:00",
-        title: INTL.DIRECTIONS_PAGE.REGGAETON,
-      },
+        title: INTL.DIRECTIONS_PAGE.STRETCHING,
+      }
     ],
   },
 ];

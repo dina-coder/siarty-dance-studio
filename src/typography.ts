@@ -3,7 +3,6 @@ import {createGlobalStyle} from 'styled-components';
 export const TypographyStyle = createGlobalStyle`
 
 body {
-overflow: hidden;
 }
 
 body, button, textarea {

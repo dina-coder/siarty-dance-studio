@@ -7,13 +7,13 @@ import { COLORS } from "../../../../common/constants";
 
 type TLogoProps = {
     className?: string;
-} & React.HTMLProps<HTMLAnchorElement>
+    onClick: () => unknown;
+}
 
-export const Logo = ({className}: TLogoProps) => (
+export const Logo = ({className, onClick}: TLogoProps) => (
     <LogoContainerStyled
     className={className}
-    component="a"
-    href="#main"
+    onClick={onClick}
   >
     <LogoIconStyled />
   </LogoContainerStyled>
@@ -22,9 +22,13 @@ export const Logo = ({className}: TLogoProps) => (
 const LogoContainerStyled = styled(Box)`
   display: 'flex';
   color: ${COLORS.WHITE};
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const LogoIconStyled = styled(LogoIcon)`
-  height: 42px;
-  width: 42px;
+  height: 36px;
+  width: 36px;
 `;

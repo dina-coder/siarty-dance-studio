@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { COLORS, INTL } from "../../../common/constants";
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { Logo } from "../ui/molecules/Logo";
 import { Menu } from "../ui/organisms/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link, scroller } from "react-scroll";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
   {
@@ -42,14 +42,22 @@ const navItems = [
   },
 ];
 
-export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
+export const HeaderContainer = ({ isColor }: { isColor?: boolean }) => {
   const [open, setState] = useState(false);
-
-  //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
   const toggleDrawer = (open: boolean) => {
-    //changes the function state according to the value of open
     setState(open);
   };
+
+  const navigate = useNavigate();
+  const {pathname} = useLocation()
+
+  const handleClickLink = (id: string)=>{
+    if (pathname !=='/') {
+      navigate('/');
+      setTimeout(()=> {scroller.scrollTo(id, {spy:true})}, 0)
+    }
+    toggleDrawer(false);
+   };
 
   return (
     <AppBarStyled
@@ -59,13 +67,13 @@ export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
               backgroundColor: COLORS.BLACK_1_ALPHA_80,
               backdropFilter: "blur(4px)",
             }
-          : { backgroundColor: "transparent" }
+          : { backgroundColor: "transparent", backdropFilter: "blur(4px)" }
       }
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <BoxStyled sx={{ display: { xs: "flex", md: "none" } }}>
-            <Logo />
+            <Logo onClick={() => navigate('/')} />
             <IconButton
               size="large"
               color="inherit"
@@ -81,60 +89,54 @@ export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
               display: { xs: "none", md: "flex" },
             }}
           >
-            <Logo />
+            <Logo onClick={() => navigate('/')} />
             <Menu />
           </BoxStyled>
         </Toolbar>
       </Container>
 
       <Drawer
-        //from which side the drawer slides in
         anchor="right"
-        //if open is true --> drawer is shown
         open={open}
-        //function that is called when the drawer should close
         onClose={() => toggleDrawer(false)}
-        //function that is called when the drawer should open
         onClick={() => toggleDrawer(!open)}
       >
-        {/* The inside of the drawer */}
         <Box
           sx={{
             p: 4,
             height: 1,
           }}
         >
-          {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
           <IconButton sx={{ mb: 2, color: "white" }}>
             <CloseIcon onClick={() => toggleDrawer(false)} />
           </IconButton>
           <ListStyled>
             {navItems.map(({ id, title }) => (
-              <ListItem key={id} disablePadding>
-                <ListItemButton
-                  component={"a"}
-                  href={"#" + id}
-                  sx={{
-                    "&.MuiButtonBase-root:hover": {
-                      textDecorationColor: COLORS.ACCENT,
-                      textDecorationLine: "underline",
-                      textDecorationThickness: "4px",
-                      textUnderlineOffset: "6px",
-                    },
-                  }}
-                >
-                  <Typography noWrap variant="button">
-                    {title}
-                  </Typography>
-                </ListItemButton>
-              </ListItem>
+              <Link key={id} to={id} smooth= {true} spy={true} onClick={() => handleClickLink(id)}>
+                <ListItem key={id} disablePadding>
+                  <ListItemButton
+                    sx={{
+                      "&.MuiButtonBase-root:hover": {
+                        textDecorationColor: COLORS.ACCENT,
+                        textDecorationLine: "underline",
+                        textDecorationThickness: "4px",
+                        textUnderlineOffset: "6px",
+                      },
+                    }}
+                  >
+                    <Typography noWrap variant="button">
+                      {title}
+                    </Typography>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             ))}
           </ListStyled>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              gap: '16px',
+              gap: "16px",
               alignItems: "center",
               justifyContent: "center",
               position: "absolute",
@@ -168,6 +170,7 @@ export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
               }}
             >
               <IconButton
+                key="wa"
                 sx={{
                   "&:hover": {
                     backgroundColor: COLORS.ACCENT,
@@ -177,10 +180,11 @@ export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
                 href="https://wa.me/79691909666"
                 target="_blank"
               >
-                <ImgStyled src={require("../../../assets/wa.png")} />
+                <ImgStyled src={require("../../../assets/wa.png")} loading="lazy" />
               </IconButton>
 
               <IconButton
+                key="telegram"
                 sx={{
                   "&:hover": {
                     backgroundColor: COLORS.ACCENT,
@@ -190,9 +194,10 @@ export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
                 href="https://t.me/siarty_dance_studio"
                 target="_blank"
               >
-                <ImgStyled src={require("../../../assets/telegram.png")} />
+                <ImgStyled src={require("../../../assets/telegram.png")} loading="lazy" />
               </IconButton>
               <IconButton
+                key="vk"
                 sx={{
                   "&:hover": {
                     backgroundColor: COLORS.ACCENT,
@@ -202,7 +207,7 @@ export const HeaderContainer = ({ isColor }: { isColor: boolean }) => {
                 href="https://vk.com/siarty_dancestudio"
                 target="_blank"
               >
-                <SmallImgStyled src={require("../../../assets/vk.png")} />
+                <SmallImgStyled src={require("../../../assets/vk.png")} loading="lazy" />
               </IconButton>
             </Box>
           </Box>

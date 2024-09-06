@@ -1,80 +1,62 @@
 import {
-  Box,
-  CardMedia,
-  CardMediaTypeMap,
-  Card as CardAtom,
-  CardActionArea,
-  CardContent,
   Typography,
-  CardHeader,
 } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
-import { LogoIcon } from "../../../../assets/icons";
 import { COLORS } from "../../../../common/constants";
 
 type TCardProps = {
   className?: string;
   title?: string;
   pic?: string;
+  onClick?: ()=>unknown;
 };
 
-export const Card = ({ className, title, pic }: TCardProps) => (
-  <CardAtomStyled sx={{
-    boxShadow: 'none',
-    "&.MuiCard-root": {
-      backgroundColor: 'transparent'
-    },
-    "&.MuiCard-root:hover": {
-        backgroundColor: COLORS.ACCENT
-      },
-  }}>
-    <CardActionAreaStyled>
-      <CardMediaStyled
-        className={className}
-        image={pic}
-        component="img"
-      />
+export const Card = ({ className, title, pic, onClick }: TCardProps) => (
+  <CardStyle
+  className={className}
+  onClick={onClick}
+  pic={pic}
+>
       <CardContentStyled>
-        <TypographyStyled
-          variant="h6"
-          component={"div"}
+        <Typography
+        variant='h5'
           color={COLORS.WHITE}
           fontFamily={"Montserrat"}
+          fontWeight={200}
+          sx={{fontWeight: '600'}}
         >
           {title}
-        </TypographyStyled>
+        </Typography>
       </CardContentStyled>
-    </CardActionAreaStyled>
-  </CardAtomStyled>
+  </CardStyle>
 );
 
-const CardMediaStyled = styled(CardMedia)`
-  height: 80%;
-`;
+const CardStyle = styled.div<TCardProps>`
+content: '';
+height: 100%;
+width: 100%;
+position: relative;
+background-size: cover;
+background-position: center;
+background-image: ${({pic}) => `url(${pic})`};
+border-radius: 16px;
 
-const CardAtomStyled = styled(CardAtom)`
-  position: relative;
-  flex-grow: 1;
   &:hover {
-    ${CardMediaStyled} {
-        transition: all ease-in-out .45s;
-        transform: scale(0.9);
-    }
+    transition: all ease-in-out .45s;
+    transform: scale(1.05);
+    cursor: pointer;
   }
 `;
-
-const CardActionAreaStyled = styled(CardActionArea)`
-  height: 100%;
-  padding: 0;
-`;
-
 
 
 const TypographyStyled = styled(Typography)`
   text-align: center;
 `;
 
-const CardContentStyled = styled(CardContent)`
+const CardContentStyled = styled.div`
+position: absolute;
+left: 5%;
+bottom: 5%;
 `;

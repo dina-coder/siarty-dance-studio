@@ -1,4 +1,4 @@
-import { Card, Grid, Paper } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import React from "react";
 import styled from "styled-components";
 import { scheduleList } from "../constants/schedule";
@@ -9,7 +9,7 @@ export const ScheduleContainer = () => {
   return (
     <WrapperStyle container sx={{backgroundColor: COLORS.WHITE}} spacing={0.1}>
       {scheduleList.map(({ weekDay, schedule}) => (
-        <GridStyled item key={weekDay} xs={12} sm={12} md={2.4}>
+        <GridStyled item key={weekDay} xs={12} lg={2.4}>
           <ScheduleCell weekDay={weekDay} schedule={schedule}></ScheduleCell>
         </GridStyled>
       ))}

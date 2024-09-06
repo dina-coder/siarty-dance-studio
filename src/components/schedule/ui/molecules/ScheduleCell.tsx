@@ -29,8 +29,8 @@ export const ScheduleCell = ({
     <ContentStyled>
       {schedule.map(({ id, title, time }) => (
         <RowStyle key={id}>
+          <Typography color={COLORS.WHITE}>{title}</Typography>
           <Typography color={COLORS.WHITE}>{time}</Typography>
-          <DirectionStyled color={COLORS.WHITE}>{title}</DirectionStyled>
         </RowStyle>
       ))}
     </ContentStyled>
@@ -65,8 +65,4 @@ const RowStyle = styled.div`
   display: flex;
   gap: 8px;
   justify-content: space-between;
-`;
-
-const DirectionStyled = styled(Typography)`
-  text-align: right;
 `;

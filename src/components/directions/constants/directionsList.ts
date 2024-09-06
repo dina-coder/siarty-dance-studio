@@ -10,36 +10,31 @@ export const directionsList: TDirection[] = [
     {
         id: 'STRIP_PLASTIC_PRO',
         title: INTL.DIRECTIONS_PAGE.STRIP_PLASTIC_PRO,
-        pic: require('../../../assets/Strip.png')
+        pic: require('../../../assets/Strip2.webp')
     },
     {
         id: 'CHOREO',
         title: INTL.DIRECTIONS_PAGE.CHOREO,
-        pic: require('../../../assets/Choreo.png')
-    },
-    {
-        id: 'JAZZ_FUNK',
-        title: INTL.DIRECTIONS_PAGE.JAZZ_FUNK,
-        pic: require('../../../assets/JazzFunk.png')
+        pic: require('../../../assets/Choreo3.webp')
     },
     {
         id: 'LADY_STYLE',
         title: INTL.DIRECTIONS_PAGE.LADY_STYLE,
-        pic: require('../../../assets/LadyStyle.png')
+        pic: require('../../../assets/Lady.webp')
     },
     {
         id: 'TWERK',
         title: INTL.DIRECTIONS_PAGE.TWERK,
-        pic: require('../../../assets/Twerk.png')
+        pic: require('../../../assets/Twerk.webp')
     },
     {
-        id: 'REGGAETON',
-        title: INTL.DIRECTIONS_PAGE.REGGAETON,
-        pic: require('../../../assets/Reggaeton.png')
+        id: 'DANCEHALL',
+        title: INTL.DIRECTIONS_PAGE.DANCEHALL.TITLE,
+        pic: require('../../../assets/Dancehall.webp')
     },
     {
         id: 'STRETCHING',
         title: INTL.DIRECTIONS_PAGE.STRETCHING,
-        pic: require('../../../assets/Stretching.png')
+        pic: require('../../../assets/Stretch.webp')
     }
 ]

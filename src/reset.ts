@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { createGlobalStyle } from "styled-components";
+import { COLORS } from "./common/constants";
 
 export const ResetStyle = createGlobalStyle`
 html,
@@ -92,9 +93,6 @@ font: inherit;
 vertical-align: baseline;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 /* make sure to set some focus styles for accessibility */
 :focus {
 outline: 0;
@@ -117,6 +115,7 @@ display: block;
 
 body {
 line-height: 1;
+background-color: ${COLORS.BLACK_1};
 }
 
 ol,
